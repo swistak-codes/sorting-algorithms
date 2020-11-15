@@ -42,7 +42,7 @@ function* bubbleSort(elements, comparator) {
         // ustawiamy, ze tablica nie jest posortowana
         isSorted = false;
       }
-      // resetujemy oznaczenia akutalnego i porownywanego elementu
+      // resetujemy oznaczenia aktualnego i porownywanego elementu
       result.array = result.array.map((x) => ({
         ...x,
         isCurrent: false,

@@ -99,7 +99,7 @@
   <Button disabled={!$canExecuteIteration || isAnimating} onClick={goToNext}>Następny krok</Button>
   <Item>
     <label for="fps">Prędkość animacji</label>
-    <input name="elements" type="number" min=1 max=60 bind:value={fps}>
+    <input name="elements" type="number" min=1 max=60 bind:value={fps} disabled={!$canExecuteIteration || isAnimating}>
   </Item>
   {#if !isAnimating}
     <Button disabled={!$canExecuteIteration} onClick={animate}>Odtwórz animację</Button>
