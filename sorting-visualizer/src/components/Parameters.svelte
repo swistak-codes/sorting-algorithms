@@ -44,7 +44,7 @@
     <input name="elements" type="number" min=2 max=100 bind:value={elements}>
   </Item>
   <Item>
-    <label for="data-random">Sposób ułozenia wartości</label>
+    <label for="data-random">Sposób ułożenia wartości</label>
     <select name="data-random" bind:value={randomizer}>
       <option value="shuffle">losowo</option>
       <option value="sortAsc">posortowane (rosnąco)</option>
