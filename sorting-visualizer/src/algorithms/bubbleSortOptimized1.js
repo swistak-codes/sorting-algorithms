@@ -6,15 +6,16 @@ import * as comparators from "../helpers/comparators";
  * @param {{}} elements
  * @param {String} comparator
  */
-function* bubbleSort(elements, comparator) {
+function* bubbleSortOptimized1(elements, comparator) {
   // wykonujemy kopię oryginalnej tablicy oraz dokładamy dodatkowe informacje
   const result = { array: [...elements.array], comparisons: 0, swaps: 0 };
   // wyciągamy funkcję porównującą
   const compare = comparators[comparator];
-  const length = elements.array.length;
 
-  for (let iteration = 0; iteration < length; iteration++) {
-    for (let i = 0; i < length - 1; i++) {
+  // co iterację będziemy skracać rozpatrywaną tablicę o jeden element
+  // wynika to z faktu, ze na koniec zawsze trafiają elementy posortowane
+  for (let length = elements.array.length - 1; length > 1; length--) {
+    for (let i = 0; i < length; i++) {
       // wyciągamy referencję do elementów które ze sobą porównujemy
       const current = result.array[i];
       const compared = result.array[i + 1];
@@ -49,6 +50,6 @@ function* bubbleSort(elements, comparator) {
   return result;
 }
 
-bubbleSort.algorithmName = "Sortowanie bąbelkowe (brak optymalizacji)";
+bubbleSortOptimized1.algorithmName = "Sortowanie bąbelkowe (optymalizacja 1)";
 
-export { bubbleSort };
+export { bubbleSortOptimized1 };

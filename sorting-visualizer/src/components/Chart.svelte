@@ -71,7 +71,7 @@
   {#if !$isDataPresent}
     <h2>Brak danych do pokazania!</h2>
   {/if}
-  <canvas bind:this={canvas} width="500" height="150"></canvas>
+  <canvas bind:this={canvas} width="500" height="250"></canvas>
   {#if $isDataPresent}
     <p>Liczba porównań: {comparisons}; liczba zamian: {swaps}</p>
   {/if}
