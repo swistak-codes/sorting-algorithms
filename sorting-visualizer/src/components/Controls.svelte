@@ -13,6 +13,7 @@
   import { executeAnimated, stopAnimation } from "../helpers/executeAnimated";
 
   export let algorithm;
+  export let generator;
   let fps = 30;
   let iterator;
   let isAnimating = false;
@@ -22,7 +23,7 @@
    */
   function startIteration() {
     // pobieramy iterator z funkcji
-    iterator = algorithm($currentData, $sortDirection);
+    iterator = algorithm($currentData, $sortDirection, generator);
     // ustawiamy, ze dane nie są "świeze"
     $isFreshData = false;
   }

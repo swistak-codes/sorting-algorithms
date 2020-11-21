@@ -4,6 +4,7 @@
   import Controls from "./Controls.svelte";
 
   export let algorithm;
+  export let generator;
 </script>
 
 <style>
@@ -17,5 +18,5 @@
 	<h1>{algorithm.algorithmName}</h1>
   <Parameters />
   <Chart />
-  <Controls algorithm={algorithm} />
+  <Controls algorithm={algorithm} generator={generator} />
 </main>
