@@ -15,6 +15,7 @@ export function shell(elementsCount) {
   // zwracamy liczby
   return result;
 }
+shell.algorithmName = "Shell (1959)";
 
 /**
  * Funkcja generująca odstępy do sortowania Shella zgodnie z wzorem opracowanym przez Knutha (dająca złozoność O(N^(3/2)))
@@ -42,13 +43,14 @@ export function knuth(elementsCount) {
   // zwracamy liczby
   return result;
 }
+knuth.algorithmName = "Knuth (1973)";
 
 /**
  * Funkcja generująca odstępy do sortowania Shella zgodnie z wzorem opracowanym przez Sedgewicka (1986) (dająca złozoność O(N^(4/3)))
  * @param {Number} elementsCount
  */
 export function sedgewick(elementsCount) {
-  const result = [];
+  const result = [1];
   const limit = elementsCount;
   let k = 1;
   while (true) {
@@ -77,6 +79,7 @@ export function sedgewick(elementsCount) {
   // zwracamy liczby
   return result;
 }
+sedgewick.algorithmName = "Sedgewick (1986)";
 
 /**
  * Funkcja zwracająca odstępy do sortowania Shella wyznaczone eksperymentalnie przez Marcina Ciurę
@@ -84,3 +87,4 @@ export function sedgewick(elementsCount) {
 export function ciura() {
   return [701, 301, 132, 57, 23, 10, 4, 1];
 }
+ciura.algorithmName = "Ciura (2001)";

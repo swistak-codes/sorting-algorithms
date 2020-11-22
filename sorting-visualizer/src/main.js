@@ -1,5 +1,6 @@
 import App from "./components/App.svelte";
 import * as algorithms from "./algorithms";
+import * as generators from "../helpers/shellSortGapsGenerators";
 
 const params = new URLSearchParams(window.location.search);
 
@@ -9,7 +10,8 @@ function getAlgorithm() {
 }
 
 function getGenerator() {
-  return params.get("generator") || "ciura";
+  const generator = params.get("generator");
+  return generator ? generators[generator] : null;
 }
 
 const app = new App({

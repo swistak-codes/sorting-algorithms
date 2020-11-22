@@ -1,6 +1,5 @@
 import { swap } from "../helpers/swap";
 import * as comparators from "../helpers/comparators";
-import * as generators from "../helpers/shellSortGapsGenerators";
 
 /**
  * Implementacja sortowania Shella pozwalająca na wizualizację krok po kroku
@@ -14,7 +13,7 @@ function* shellSort(elements, comparator, generator) {
   // wyciągamy funkcję porównującą
   const compare = comparators[comparator];
   // generujemy odstępy w jakich będziemy sprawdzać elementy
-  const gaps = generators[generator](elements.array.length);
+  const gaps = generator(elements.array.length);
   // iterujemy po odstępach od największego do najmniejszego
   for (const gap of gaps) {
     // wykonujemy sortowanie przez wstawianie dla zadanego odstępu

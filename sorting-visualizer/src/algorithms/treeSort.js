@@ -99,10 +99,10 @@ function* insertToTree(tree, element, compare) {
     // czyścimy oznaczenia
     element.isCurrent = false;
     tree.node.isComparedTo = false;
-    if (compare(element.value, tree.node.value)) {
-      yield* insertToTree(tree.right, element, compare);
-    } else {
+    if (compare(tree.node.value, element.value)) {
       yield* insertToTree(tree.left, element, compare);
+    } else {
+      yield* insertToTree(tree.right, element, compare);
     }
   }
 }
