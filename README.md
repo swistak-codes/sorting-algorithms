@@ -15,7 +15,7 @@ App for visualizing process of sorting for different algorithms. Can be checked 
 Running instructions:
 
 ```bash
-cd ./number-guess
+cd ./sorting-visualizer
 npm install
 npm run start:dev
 ```
