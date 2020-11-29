@@ -1,4 +1,5 @@
 import { swap } from "../helpers/swap";
+import { resetResult } from "../data/resetResult";
 import * as comparators from "../helpers/comparators";
 
 /**
@@ -42,11 +43,7 @@ function* shakerSort(elements, comparator) {
         isSorted = false;
       }
 
-      result.array = result.array.map((x) => ({
-        ...x,
-        isCurrent: false,
-        isComparedTo: false
-      }));
+      resetResult(result);
     }
 
     // ostatni element jest na swoim miejscu więc przesuwamy koniec
@@ -73,11 +70,7 @@ function* shakerSort(elements, comparator) {
         isSorted = false;
       }
 
-      result.array = result.array.map((x) => ({
-        ...x,
-        isCurrent: false,
-        isComparedTo: false
-      }));
+      resetResult(result);
     }
 
     // pierwszy element jest na swoim miejscu więc przesuwamy początek

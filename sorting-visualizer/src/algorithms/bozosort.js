@@ -1,4 +1,5 @@
 import { swap } from "../helpers/swap";
+import { resetResult } from "../data/resetResult";
 import * as comparators from "../helpers/comparators";
 
 /**
@@ -29,11 +30,7 @@ function* bozosort(elements, comparator) {
     // zwracamy tablicę do wizualizacji
     yield result;
     // resetujemy oznaczenia w tablicy
-    result.array = result.array.map((x) => ({
-      ...x,
-      isCurrent: false,
-      isComparedTo: false
-    }));
+    resetResult(result);
     // tymczasowo uznajemy dane za posortowane dla ułatwienia
     isSorted = true;
     // sprawdzamy czy elementy są posortowane
@@ -58,11 +55,7 @@ function* bozosort(elements, comparator) {
       }
     }
     // resetujemy oznaczenia akutalnego i porownywanego elementu
-    result.array = result.array.map((x) => ({
-      ...x,
-      isCurrent: false,
-      isComparedTo: false
-    }));
+    resetResult(result);
   }
 
   // zwracamy na sam koniec tablicę bez oznaczonych elementów

@@ -1,3 +1,4 @@
+import { resetResult } from "../data/resetResult";
 import * as comparators from "../helpers/comparators";
 
 // pusty element drzewa
@@ -67,11 +68,7 @@ function generateResultArray() {
  */
 function* insertToTree(tree, element, compare) {
   // resetujemy oznaczenia aktualnego i porownywanego elementu
-  result.array = result.array.map((x) => ({
-    ...x,
-    isCurrent: false,
-    isComparedTo: false
-  }));
+  resetResult(result);
   // jezeli drzewo nie ma przypisanej wartości, przypisujemy ją
   if (!tree.node) {
     tree.node = element;

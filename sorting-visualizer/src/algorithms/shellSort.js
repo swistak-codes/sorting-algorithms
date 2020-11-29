@@ -1,4 +1,5 @@
 import { swap } from "../helpers/swap";
+import { resetResult } from "../data/resetResult";
 import * as comparators from "../helpers/comparators";
 
 /**
@@ -54,11 +55,7 @@ function* shellSort(elements, comparator, generator) {
           needsSwap = false;
         }
         // resetujemy oznaczenia aktualnego i porownywanego elementu
-        result.array = result.array.map((x) => ({
-          ...x,
-          isCurrent: false,
-          isComparedTo: false
-        }));
+        resetResult(result);
       }
       // przesuwamy aktualnie rozpatrywany element
       i++;

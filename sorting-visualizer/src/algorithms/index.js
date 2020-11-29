@@ -10,6 +10,10 @@ export { gnomeSort } from "./gnomeSort";
 export { insertSort } from "./insertSort";
 export { shellSort } from "./shellSort";
 export { treeSort } from "./treeSort";
+// sortowania przez wybieranie
+export { selectionSort } from "./selectionSort";
+export { cycleSort } from "./cycleSort";
+export { heapSort } from "./heapSort";
 // sortowania zarty
 export { bogosort } from "./bogosort";
 export { bozosort } from "./bozosort";

@@ -1,4 +1,5 @@
 import { swap } from "../helpers/swap";
+import { resetResult } from "../data/resetResult";
 import * as comparators from "../helpers/comparators";
 
 /**
@@ -37,11 +38,7 @@ function* bubbleSort(elements, comparator) {
         yield result;
       }
       // resetujemy oznaczenia aktualnego i porownywanego elementu
-      result.array = result.array.map((x) => ({
-        ...x,
-        isCurrent: false,
-        isComparedTo: false
-      }));
+      resetResult(result);
     }
   }
 

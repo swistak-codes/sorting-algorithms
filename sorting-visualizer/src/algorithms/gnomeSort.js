@@ -1,4 +1,5 @@
 import { swap } from "../helpers/swap";
+import { resetResult } from "../data/resetResult";
 import * as comparators from "../helpers/comparators";
 
 /**
@@ -49,11 +50,7 @@ function* gnomeSort(elements, comparator) {
       i++;
     }
     // resetujemy oznaczenia aktualnego i porownywanego elementu
-    result.array = result.array.map((x) => ({
-      ...x,
-      isCurrent: false,
-      isComparedTo: false
-    }));
+    resetResult(result);
   }
 
   // zwracamy na sam koniec tablicę bez oznaczonych elementów

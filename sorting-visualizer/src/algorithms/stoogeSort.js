@@ -1,4 +1,5 @@
 import { swap } from "../helpers/swap";
+import { resetResult } from "../data/resetResult";
 import * as comparators from "../helpers/comparators";
 
 let result = {};
@@ -32,11 +33,7 @@ function* stoogeSortInternal(i, j) {
     yield result;
   }
   // resetujemy oznaczenia aktualnego i porownywanego elementu
-  result.array = result.array.map((x) => ({
-    ...x,
-    isCurrent: false,
-    isComparedTo: false
-  }));
+  resetResult(result);
 
   if (i + 1 < j) {
     // jezeli istnieje cokolwiek między aktualnymi elementami, to zawęzamy przedziały

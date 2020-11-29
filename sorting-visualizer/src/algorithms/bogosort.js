@@ -1,4 +1,5 @@
 import { shuffle } from "../data/randomizers/shuffle";
+import { resetResult } from "../data/resetResult";
 import * as comparators from "../helpers/comparators";
 
 /**
@@ -46,11 +47,7 @@ function* bogosort(elements, comparator) {
       }
     }
     // resetujemy oznaczenia akutalnego i porownywanego elementu
-    result.array = result.array.map((x) => ({
-      ...x,
-      isCurrent: false,
-      isComparedTo: false
-    }));
+    resetResult(result);
   }
 
   // zwracamy na sam koniec tablicę bez oznaczonych elementów
