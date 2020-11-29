@@ -63,6 +63,6 @@ function* stoogeSort(elements, comparator) {
   return result;
 }
 
-stoogeSort.algorithmName = "Stooge sort";
+stoogeSort.algorithmName = "Sortowanie głupie";
 
 export { stoogeSort };
