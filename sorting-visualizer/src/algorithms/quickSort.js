@@ -11,7 +11,7 @@ import * as comparators from "../helpers/comparators";
  */
 function* partition(result, start, end, compare) {
   // ustalamy element pivot na pierwszym elemencie
-  const pivot = result.array[start];
+  let pivot = result.array[start];
   // ustawiamy, ze pivot jest aktualnie rozpatrywanym elementem
   pivot.isCurrent = true;
   // zwracamy tablicę do wizualizacji
@@ -26,6 +26,7 @@ function* partition(result, start, end, compare) {
       i++;
       // wyciągamy referencję do elementu który porównujemy
       compared = result.array[i];
+      pivot = result.array[start];
       // oznaczamy elementy które porównujemy
       compared.isComparedTo = true;
       pivot.isCurrent = true;
@@ -41,6 +42,7 @@ function* partition(result, start, end, compare) {
       j--;
       // wyciągamy referencję do elementu który porównujemy
       compared = result.array[j];
+      pivot = result.array[start];
       // oznaczamy elementy które porównujemy
       compared.isComparedTo = true;
       pivot.isCurrent = true;
