@@ -105,7 +105,7 @@ function* insertToTree(tree, element, compare) {
 }
 
 /**
- * Implementacja sortowania przez wstawianie pozwalająca na wizualizację krok po kroku
+ * Implementacja sortowania drzewiastego pozwalająca na wizualizację krok po kroku
  * @param {{}} elements
  * @param {String} comparator
  */

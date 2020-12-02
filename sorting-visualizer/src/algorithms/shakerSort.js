@@ -46,9 +46,16 @@ function* shakerSort(elements, comparator) {
       resetResult(result);
     }
 
+    if (isSorted) {
+      // jezeli w ostatnim przejsciu nie zamienialiśmy zadnych elementów oznacza to, ze tablica jest juz posortowana
+      // mozemy w takim razie przerwać algorytm
+      break;
+    }
+
     // ostatni element jest na swoim miejscu więc przesuwamy koniec
     end--;
 
+    isSorted = true;
     // teraz przechodzimy od końca do początku, tak samo jak w bubble sort, z małą róznicą przy porównaniu
     // najpierw przechodzimy od początku do końca, identycznie jak w bubble sort
     for (let i = end; i > start; i--) {

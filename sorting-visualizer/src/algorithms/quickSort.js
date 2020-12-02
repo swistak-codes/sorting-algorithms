@@ -96,7 +96,7 @@ function* quickSortInternal(result, start, end, compare) {
 }
 
 /**
- * Implementacja sortowania bąbelkowego pozwalająca na wizualizację krok po kroku
+ * Implementacja sortowania szybkiego pozwalająca na wizualizację krok po kroku
  * @param {{}} elements
  * @param {String} comparator
  */

@@ -6,7 +6,7 @@ let result = {};
 let compare = () => true;
 
 /**
- * Implementacja sortowania bąbelkowego pozwalająca na wizualizację krok po kroku
+ * Implementacja sortowania głupiego pozwalająca na wizualizację krok po kroku
  * @param {Number} i
  * @param {Number} j
  */
