@@ -13,6 +13,7 @@ export { cycleSort } from "./cycleSort";
 export { heapSort } from "./heapSort";
 // sortowania bazujące na metodzie "dziel i zwycięzaj" (cz. 5)
 export { quickSort } from "./quickSort";
+export { mergeSortTopDown } from "./mergeSortTopDown";
 // inne sortowania (cz. 6)
 export { oddEvenSort } from "./oddEvenSort";
 export { gnomeSort } from "./gnomeSort";
