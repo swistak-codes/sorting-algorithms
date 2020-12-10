@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "sirv-cli": "^1.0.0",
-    "chart.js": "2.9.4"
+    "chart.js": "2.9.4",
+    "vis-data": "7.1.1",
+    "vis-network": "8.5.4"
   }
 }
