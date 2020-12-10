@@ -5,12 +5,15 @@ import * as comparators from "../helpers/comparators";
 const emptyTree = {
   left: null,
   right: null,
-  node: null
+  node: null,
+  id: null
 };
 // oryginalna tablica
 let originalArray = [];
 // aktualny indeks
 let currentIndex = 0;
+// ostatni identyfikator dodany do drzewa
+let lastId = -1;
 // zmienna przechowująca rezultat algorytmu
 let result = {};
 // zmienna przechowująca aktualne drzewo
@@ -34,6 +37,42 @@ function treeToArray(tree, acc = []) {
     // jezeli zawiera prawą gałąz, odpalamy funkcje rekurencyjnie
     if (tree.right) {
       result = treeToArray(tree.right, result);
+    }
+  }
+  return result;
+}
+
+/**
+ * Funkcja konwertująca drzewo na drzewo do wizualizacji
+ * @param {*} tree
+ * @param {*} acc
+ */
+function treeToVisualization(tree, acc = { nodes: [], edges: [] }) {
+  let result = acc;
+  // sprawdzamy czy aktualne poddrzewo zawiera element
+  if (tree.node) {
+    // dopisujemy aktualny element
+    result.nodes.push({
+      // identyfikator to pozycja w tablicy
+      id: tree.id,
+      // liczbę wyświetlimy w postaci zaokrąglonej do dwóch miejsc po przecinku
+      label: "" + parseFloat(tree.node.value.toFixed(2))
+    });
+    // jezeli zawiera lewą gałąz, odpalamy funkcje rekurencyjnie
+    if (tree.left && tree.left.id) {
+      result.edges.push({
+        from: tree.id,
+        to: tree.left.id
+      });
+      result = treeToVisualization(tree.left, result);
+    }
+    // jezeli zawiera prawą gałąz, odpalamy funkcje rekurencyjnie
+    if (tree.right && tree.right.id) {
+      result.edges.push({
+        from: tree.id,
+        to: tree.right.id
+      });
+      result = treeToVisualization(tree.right, result);
     }
   }
   return result;
@@ -72,9 +111,12 @@ function* insertToTree(tree, element, compare) {
   // jezeli drzewo nie ma przypisanej wartości, przypisujemy ją
   if (!tree.node) {
     tree.node = element;
+    tree.id = ++lastId;
     element.isCurrent = true;
     // zwracamy tablicę do wizualizacji
     result.array = generateResultArray();
+    // generujemy drzewo do wizualizacji
+    result.tree = treeToVisualization(currentTree);
     yield result;
     element.isCurrent = false;
   } else {
@@ -92,6 +134,8 @@ function* insertToTree(tree, element, compare) {
     result.comparisons += 1;
     // zwracamy tablicę do wizualizacji
     result.array = generateResultArray();
+    // generujemy drzewo do wizualizacji
+    result.tree = treeToVisualization(currentTree);
     yield result;
     // czyścimy oznaczenia
     element.isCurrent = false;
@@ -123,9 +167,12 @@ function* treeSort(elements, comparator) {
 
   // zwracamy na sam koniec tablicę bez oznaczonych elementów
   result.array = generateResultArray();
+  // generujemy drzewo do wizualizacji
+  result.tree = treeToVisualization(currentTree);
   return result;
 }
 
 treeSort.algorithmName = "Sortowanie drzewiaste";
+treeSort.hasTree = true;
 
 export { treeSort };
