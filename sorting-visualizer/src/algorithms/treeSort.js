@@ -65,6 +65,16 @@ function treeToVisualization(tree, acc = { nodes: [], edges: [] }) {
         to: tree.left.id
       });
       result = treeToVisualization(tree.left, result);
+    } else if (tree.right) {
+      const id = Math.random();
+      result.nodes.push({
+        id,
+        label: ""
+      });
+      result.edges.push({
+        from: tree.id,
+        to: id
+      });
     }
     // jezeli zawiera prawą gałąz, odpalamy funkcje rekurencyjnie
     if (tree.right && tree.right.id) {
@@ -73,6 +83,16 @@ function treeToVisualization(tree, acc = { nodes: [], edges: [] }) {
         to: tree.right.id
       });
       result = treeToVisualization(tree.right, result);
+    } else if (tree.left) {
+      const id = Math.random();
+      result.nodes.push({
+        id,
+        label: ""
+      });
+      result.edges.push({
+        from: tree.id,
+        to: id
+      });
     }
   }
   return result;
