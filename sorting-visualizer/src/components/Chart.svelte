@@ -34,7 +34,10 @@
         scales: {
           yAxes: [
             {
-              display: false
+              display: false,
+              ticks: {
+                beginAtZero: true
+              }
             }
           ],
           xAxes: [

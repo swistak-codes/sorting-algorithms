@@ -35,6 +35,7 @@
     <label for="data-gen">Generator danych</label>
     <select name="data-gen" bind:value={generator}>
       <option value="oneToN">od 1 do N</option>
+      <option value="repeated">powtarzające się</option>
       <option value="random">losowe</option>
       <option value="gaussRandom">losowe (Gauss)</option>
     </select>
