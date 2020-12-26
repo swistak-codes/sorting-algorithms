@@ -10,6 +10,9 @@
   } from "../store";
   import { dataGenerator } from "../data/dataGenerator";
 
+  export let canUseFloat = true;
+  export let canChooseDirection = true;
+
   let generator = "oneToN";
   let elements = 15;
   let randomizer = "shuffle";
@@ -36,8 +39,10 @@
     <select name="data-gen" bind:value={generator}>
       <option value="oneToN">od 1 do N</option>
       <option value="repeated">powtarzające się</option>
-      <option value="random">losowe</option>
-      <option value="gaussRandom">losowe (Gauss)</option>
+      {#if canUseFloat}
+        <option value="random">losowe</option>
+        <option value="gaussRandom">losowe (Gauss)</option>
+      {/if}
     </select>
   </Item>
   <Item>
@@ -52,12 +57,14 @@
       <option value="sortDesc">posortowane (malejąco)</option>
     </select>
   </Item>
-  <Item>
-    <label for="sort-direction">Sposób sortowania</label>
-    <select name="sort-direction" bind:value={direction}>
-      <option value="asc">rosnąco</option>
-      <option value="desc">malejąco</option>
-    </select>
-  </Item>
+  {#if canChooseDirection}
+    <Item>
+      <label for="sort-direction">Sposób sortowania</label>
+      <select name="sort-direction" bind:value={direction}>
+        <option value="asc">rosnąco</option>
+        <option value="desc">malejąco</option>
+      </select>
+    </Item>
+  {/if}
   <Button onClick={start}>Start</Button>
 </Container>

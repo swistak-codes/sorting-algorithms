@@ -137,6 +137,8 @@ function* insertToTree(tree, element, compare) {
     result.array = generateResultArray();
     // generujemy drzewo do wizualizacji
     result.tree = treeToVisualization(currentTree);
+    // zwiekszamy licznik zapisow
+    result.swaps++;
     yield result;
     element.isCurrent = false;
   } else {
@@ -194,5 +196,6 @@ function* treeSort(elements, comparator) {
 
 treeSort.algorithmName = "Sortowanie drzewiaste";
 treeSort.hasTree = true;
+treeSort.isNotSwap = true;
 
 export { treeSort };

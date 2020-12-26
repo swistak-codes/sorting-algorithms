@@ -7,6 +7,7 @@ export function resetResult(result) {
   result.array = result.array.map((x) => ({
     ...x,
     isCurrent: false,
-    isComparedTo: false
+    isComparedTo: false,
+    auxiliary: undefined
   }));
 }

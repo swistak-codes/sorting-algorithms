@@ -3,11 +3,15 @@
   import { onMount } from "svelte";
   import { currentData, isDataPresent } from "../store";
   import { dataToChart } from "../data/dataToChart";
+  export let isNotSwap = false;
 
   let canvas;
   let chart;
   let comparisons;
   let swaps;
+  let auxiliary;
+
+  let swapText = isNotSwap ? "zapisów" : "zamian";
 
   onMount(() => {
     const ctx = canvas.getContext("2d");
@@ -57,6 +61,7 @@
       chart.update();
       comparisons = value.comparisons;
       swaps = value.swaps;
+      auxiliary = value.auxiliary;
     }
   });
 </script>
@@ -76,6 +81,10 @@
   {/if}
   <canvas bind:this={canvas} width="500" height="250"></canvas>
   {#if $isDataPresent}
-    <p>Liczba porównań: {comparisons}; liczba zamian: {swaps}</p>
+    <p>Liczba porównań: {comparisons}; liczba {swapText}: {swaps}</p>
+  {/if}
+  {#if auxiliary}
+    <p>Aktualna tablica pomocnicza:</p>
+    <p>[{auxiliary.join(', ')}]</p>
   {/if}
 </div>

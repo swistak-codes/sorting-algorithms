@@ -144,5 +144,6 @@ function* cycleSort(elements, comparator) {
 }
 
 cycleSort.algorithmName = "Cycle sort";
+cycleSort.isNotSwap = true;
 
 export { cycleSort };

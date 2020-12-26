@@ -20,8 +20,8 @@
   {#if generator}
     <h2>Ciąg odstępów: {generator.algorithmName}</h2>
   {/if}
-  <Parameters />
-  <Chart />
+  <Parameters canUseFloat={algorithm.canUseFloat} canChooseDirection={algorithm.canChooseDirection} />
+  <Chart isNotSwap={algorithm.isNotSwap} />
   <Controls algorithm={algorithm} generator={generator} />
   {#if algorithm.hasTree}
     <Tree />

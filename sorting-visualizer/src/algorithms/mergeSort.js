@@ -45,6 +45,8 @@ function* merge(start, middle, end) {
     }
     // resetujemy oznaczenia aktualnego i porownywanego elementu
     resetResult(result);
+    // dodajemy tablicę pomocniczą do wyniku
+    result.auxiliary = tempArray.filter((x) => !!x).map((x) => x.value);
     // zwracamy tablicę do wizualizacji
     yield result;
   }
@@ -110,5 +112,6 @@ function* mergeSort(elements, comparator) {
 }
 
 mergeSort.algorithmName = "Sortowanie przez scalanie";
+mergeSort.isNotSwap = true;
 
 export { mergeSort };

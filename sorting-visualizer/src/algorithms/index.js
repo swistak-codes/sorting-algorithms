@@ -13,12 +13,15 @@ export { heapSort } from "./heapSort";
 // sortowania bazujące na metodzie "dziel i zwycięzaj" (cz. 5)
 export { quickSort } from "./quickSort";
 export { mergeSort } from "./mergeSort";
-// inne sortowania (cz. 6)
+// sortowania bez porównań (cz. 6)
+export { countingSort } from "./countingSort";
+export { radixSort } from "./radixSort";
+// inne sortowania (cz. 7)
 export { oddEvenSort } from "./oddEvenSort";
 export { gnomeSort } from "./gnomeSort";
 export { treeSort } from "./treeSort";
 export { cycleSort } from "./cycleSort";
-// sortowania zarty (cz. 7)
+// sortowania zarty (cz. 8)
 export { bogosort } from "./bogosort";
 export { bozosort } from "./bozosort";
 export { stoogeSort } from "./stoogeSort";
