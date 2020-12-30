@@ -56,11 +56,23 @@ function* merge(start, middle, end) {
     tempArray[k] = result.array[i];
     k++;
     i++;
+    // dodajemy tablicę pomocniczą do wyniku
+    result.auxiliary = tempArray.filter((x) => !!x).map((x) => x.value);
+    // zwiększamy licznik zamian
+    result.swaps += 1;
+    // zwracamy tablicę do wizualizacji
+    yield result;
   }
   while (j <= end) {
     tempArray[k] = result.array[j];
     k++;
     j++;
+    // dodajemy tablicę pomocniczą do wyniku
+    result.auxiliary = tempArray.filter((x) => !!x).map((x) => x.value);
+    // zwiększamy licznik zamian
+    result.swaps += 1;
+    // zwracamy tablicę do wizualizacji
+    yield result;
   }
 
   // przenosimy posortowane elementy do tablicy wynikowej
