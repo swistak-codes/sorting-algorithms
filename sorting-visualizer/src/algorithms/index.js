@@ -20,7 +20,6 @@ export { radixSort } from "./radixSort";
 export { oddEvenSort } from "./oddEvenSort";
 export { gnomeSort } from "./gnomeSort";
 export { treeSort } from "./treeSort";
-export { cycleSort } from "./cycleSort";
 // sortowania zarty (cz. 8)
 export { bogosort } from "./bogosort";
 export { bozosort } from "./bozosort";
