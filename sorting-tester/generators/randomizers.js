@@ -23,4 +23,4 @@ module.exports = {
   shuffle,
   sortAsc,
   sortDesc,
-}
+};

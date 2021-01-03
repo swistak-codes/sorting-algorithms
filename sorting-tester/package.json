@@ -4,11 +4,14 @@
   "main": "index.js",
   "scripts": {
     "run": "node index.js",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "npm run lint -- --fix"
   },
   "author": "Tomasz Swistak",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^7.17.0",
     "jest": "^26.6.3"
   },
   "jest": {

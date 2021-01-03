@@ -1,7 +1,7 @@
 function getEmptyNode() {
   return {
     next: null,
-    value: Number.POSITIVE_INFINITY,
+    value: Number.NaN,
   };
 }
 
@@ -16,13 +16,19 @@ function arrayToList(array) {
     previous = current;
     current = current.next;
   }
-  previous.next = null;
+  if (previous) {
+    previous.next = null;
+  }
 
   return head;
 }
 
 function listToArray(list) {
   const result = [];
+
+  if (Number.isNaN(list.value)) {
+    return result;
+  }
 
   let current = list;
   while (current) {

@@ -6,4 +6,4 @@ module.exports = {
   bsNonOptimized,
   bsRegular,
   bsBreakOnSorted,
-}
+};
