@@ -8,11 +8,15 @@ const inputs = [
   ['powtarzające się', [0, 0, 5, 2, 5, 3, 3, 2, 1, 1, 1, 0], [0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 5, 5]],
 ];
 
-describe('algorithms/', () => {
+describe('algorithms', () => {
   describe.each(testAlgs)('%s', (_, sort) => {
     test.each(inputs)('%s', (_, input, expected) => {
-      const result = sort(input);
+      const result = sort(JSON.parse(JSON.stringify(input)));
       expect(result.elements).toEqual(expected);
+      expect(result.memory).toBeGreaterThanOrEqual(1);
+      expect(result.reads).toBeGreaterThanOrEqual(input.length);
+      expect(result.saves).toBeGreaterThanOrEqual(0);
+      expect(result.time).toBeGreaterThanOrEqual(1);
     });
   });
 });

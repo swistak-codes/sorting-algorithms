@@ -1,4 +1,5 @@
 const shellSortBase = require('./shell-sort');
+const shellSortRandomized = require('./randomized');
 const withTime = require('../../helpers/withTime');
 const {
   shell,
@@ -74,4 +75,5 @@ module.exports = {
   shellSortGonnetBaezaYates,
   shellSortTokuda,
   shellSortCiura,
+  shellSortRandomized,
 };

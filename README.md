@@ -24,6 +24,20 @@ After running you can run different configurations by providing URL params: `?al
 * algorithm contains name of algorithm to visualize. Names are the same as exported function names in algorithms/index.js.
 * generator contains name of gap sequence generator for Shellsort algorithm. Names are the same as exported function names in helpers/shellSortGapsGenerators.js.
 
-### ...
+### sorting-tester
 
-More apps coming soon
+App for testing sorting algorithms performance. 
+
+Before running:
+
+```bash
+cd ./sorting-tester
+npm install
+```
+
+Running unit tests:
+
+```bash
+npm run test
+```
+
