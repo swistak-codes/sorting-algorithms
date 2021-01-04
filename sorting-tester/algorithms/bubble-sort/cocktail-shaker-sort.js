@@ -1,5 +1,5 @@
-const swap = require('../helpers/swap');
-const withTime = require('../helpers/withTime');
+const swap = require('../../helpers/swap');
+const withTime = require('../../helpers/withTime');
 
 function cocktailShakerSort(elements) {
   let reads = 0, saves = 0, memory = 1;
