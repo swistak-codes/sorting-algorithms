@@ -82,6 +82,6 @@ function* oddEvenSort(elements, comparator) {
   return result;
 }
 
-oddEvenSort.algorithmName = "Sortowanie nieparzyste-parzyste";
+oddEvenSort.algorithmName = "Sortowanie odd-even";
 
 export { oddEvenSort };

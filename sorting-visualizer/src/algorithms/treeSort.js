@@ -18,25 +18,31 @@ let lastId = -1;
 let result = {};
 // zmienna przechowująca aktualne drzewo
 let currentTree = {};
+// zmienna przechowująca liczbę zapisów w przechodzeniu drzewa
+let traverseSaves = 0;
 
 /**
  * Funkcja konwertująca drzewo na tablicę
  * @param {*} tree
  * @param {*} acc
  */
-function treeToArray(tree, acc = []) {
+function treeToArray(tree, acc = [], countSaves = false) {
   let result = acc;
   // sprawdzamy czy aktualne poddrzewo zawiera element
   if (tree.node) {
     // jezeli zawiera lewą gałąz, odpalamy funkcje rekurencyjnie
     if (tree.left) {
-      result = treeToArray(tree.left, result);
+      result = treeToArray(tree.left, result, countSaves);
     }
     // dopisujemy aktualny element
     result.push(tree.node);
+    // inkrementujemy zmienną zliczającą zapisy
+    if (countSaves) {
+      traverseSaves++;
+    }
     // jezeli zawiera prawą gałąz, odpalamy funkcje rekurencyjnie
     if (tree.right) {
-      result = treeToArray(tree.right, result);
+      result = treeToArray(tree.right, result, countSaves);
     }
   }
   return result;
@@ -101,9 +107,9 @@ function treeToVisualization(tree, acc = { nodes: [], edges: [] }) {
 /**
  * Funkcja generująca tablicę do wyświetlenia na wykresie
  */
-function generateResultArray() {
+function generateResultArray(isFinal = false) {
   // generujemy tablicę z aktualnego drzewa
-  const treeArray = treeToArray(currentTree, []);
+  const treeArray = treeToArray(currentTree, [], isFinal);
   let rest = [];
   // jezeli zostaly nam jakies elementy w oryginalnej tablicy, dodajemy je
   if (
@@ -178,6 +184,7 @@ function* insertToTree(tree, element, compare) {
 function* treeSort(elements, comparator) {
   originalArray = elements.array;
   currentTree = { ...emptyTree };
+  traverseSaves = 0;
   // wykonujemy kopię oryginalnej tablicy oraz dokładamy dodatkowe informacje
   result = { array: [...elements.array], comparisons: 0, swaps: 0 };
   // wyciągamy funkcję porównującą
@@ -188,7 +195,9 @@ function* treeSort(elements, comparator) {
   }
 
   // zwracamy na sam koniec tablicę bez oznaczonych elementów
-  result.array = generateResultArray();
+  result.array = generateResultArray(true);
+  // dodajemy zapisy wynikające z przejścia po drzewie
+  result.swaps += traverseSaves;
   // generujemy drzewo do wizualizacji
   result.tree = treeToVisualization(currentTree);
   return result;
