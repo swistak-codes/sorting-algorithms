@@ -63,5 +63,6 @@ function* bozosort(elements, comparator) {
 }
 
 bozosort.algorithmName = "Bozosort";
+bozosort.blockRewind = true;
 
 export { bozosort };

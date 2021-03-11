@@ -14,6 +14,7 @@
 
   export let algorithm;
   export let generator;
+  export let blockedRewind;
   let fps = 30;
   let iterator;
   let isAnimating = false;
@@ -107,5 +108,5 @@
   {:else}
     <Button disabled={!$canExecuteIteration} onClick={stopPlaying}>Pauza</Button>
   {/if}
-  <Button disabled={!$canExecuteIteration || isAnimating} onClick={fastForward}>Przewiń do końca</Button>
+  <Button disabled={blockedRewind || !$canExecuteIteration || isAnimating} onClick={fastForward}>Przewiń do końca</Button>
 </Container>

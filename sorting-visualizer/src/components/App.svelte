@@ -22,7 +22,7 @@
   {/if}
   <Parameters canUseFloat={algorithm.canUseFloat} canChooseDirection={algorithm.canChooseDirection} />
   <Chart isNotSwap={algorithm.isNotSwap} />
-  <Controls algorithm={algorithm} generator={generator} />
+  <Controls algorithm={algorithm} generator={generator} blockedRewind={!!algorithm.blockRewind} />
   {#if algorithm.hasTree}
     <Tree />
   {/if}

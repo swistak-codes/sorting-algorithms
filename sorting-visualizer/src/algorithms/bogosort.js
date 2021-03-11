@@ -55,5 +55,6 @@ function* bogosort(elements, comparator) {
 }
 
 bogosort.algorithmName = "Bogosort";
+bogosort.blockRewind = true;
 
 export { bogosort };
